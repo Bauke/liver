@@ -1,0 +1,20 @@
+# https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[package]
+name = "liver"
+description = "Quick and dirty live reloading server for web development."
+version = "0.1.0"
+authors = ["Bauke <me@bauke.xyz>"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/Bauke/liver"
+readme = "README.md"
+edition = "2018"
+
+[lib]
+path = "source/lib.rs"
+
+[dependencies]
+anyhow = "1.0"
+hotwatch = "0.4"
+rocket = "0.4"
+ws = "0.9"
