@@ -3,7 +3,7 @@
 [package]
 name = "liver"
 description = "Quick and dirty live reloading server for web development."
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Bauke <me@bauke.xyz>"]
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/Bauke/liver"

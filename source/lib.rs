@@ -23,7 +23,9 @@
 
 #![feature(proc_macro_hygiene, decl_macro)]
 
-use std::{env, ffi::OsStr, fs::read, io::Cursor, path::PathBuf, thread};
+use std::{
+  env, ffi::OsStr, fs::read, io::Cursor, path::PathBuf, thread, time::Duration,
+};
 
 #[macro_use]
 extern crate rocket;
@@ -68,7 +70,8 @@ pub fn watch(path: &str) -> Result<()> {
 
   // Use a separate thread to run the websocket server and file watcher in.
   thread::spawn(move || {
-    let mut watcher = Hotwatch::new().unwrap();
+    let mut watcher =
+      Hotwatch::new_with_custom_delay(Duration::from_millis(500)).unwrap();
 
     // Start the websocket server.
     ws::listen(ws_url(), move |out| {
